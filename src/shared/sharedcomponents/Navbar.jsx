@@ -16,7 +16,7 @@ function Navbar() {
             <nav className="bg-reddishYellow py-2 px-4 lg:bg-transparent">
                 <div className="flex flex-wrap justify-between items-center">
                     <button type="button" onClick={() => navigate('/')} className="flex">
-                        <img className="w-20 md:w-auto" src={logorobot} alt="" />
+                        <img className="w-28 md:w-auto" src={logorobot} alt="" />
                     </button>
                     <div className="flex md:order-2">
                         <button

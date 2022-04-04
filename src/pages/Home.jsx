@@ -11,7 +11,7 @@ function Home() {
                     numquam velit natus.
                 </p>
             </div>
-            <div className="flex justify-center items-center h-72 md:h-96">
+            <div className="flex justify-center items-center h-96 md:h-[270px]">
                 <div className="text-center">
                     <img className="h-64" src={bot} alt="" />
                 </div>

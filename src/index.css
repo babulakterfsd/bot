@@ -57,3 +57,10 @@ body {
     scroll-behavior: smooth;
     @apply font-body text-white bg-darkishBlack;
 }
+
+/* chrome scrollbar  */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+}
