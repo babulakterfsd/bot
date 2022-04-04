@@ -55,7 +55,11 @@
 /* ------------ custom css if needed -------------- */
 body {
     scroll-behavior: smooth;
-    @apply font-body text-white bg-darkishBlack;
+    @apply font-body text-white;
+    background-image: url('../src/assets/images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 /* chrome scrollbar  */
