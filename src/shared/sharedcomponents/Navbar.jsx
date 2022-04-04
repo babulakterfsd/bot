@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logorobot from '../../assets/images/logo.png';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ function Navbar() {
             <nav className="bg-reddishYellow py-2 px-4 lg:bg-transparent">
                 <div className="flex flex-wrap justify-between items-center">
                     <button type="button" onClick={() => navigate('/')} className="flex">
-                        <span className="text-2xl text-bold">Crypto</span>
+                        <img className="w-28 md:w-auto" src={logorobot} alt="" />
                     </button>
                     <div className="flex md:order-2">
                         <button
