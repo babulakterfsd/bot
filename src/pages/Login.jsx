@@ -13,7 +13,7 @@ import Solicon from '../assets/images/solicon.PNG';
 function Login() {
     return (
         <div className="main-container px-4">
-            <div className="min-h-full flex items-center justify-center py-12 lg:my-10 px-4 sm:px-6 lg:px-8 bg-[#FAF9F6] w-full lg:w-1/2 mx-auto rounded-lg text-gray-900">
+            <div className="min-h-full flex items-center justify-center py-12 lg:my-10 px-4 sm:px-6 lg:px-8 bg-[#FAF9F6] w-full lg:w-1/2 mx-auto rounded-lg text-gray-900 my-6">
                 <div className="max-w-md w-full ">
                     <div>
                         <img alt="baal" className="mx-auto -mt-8 h-20 w-auto" src={Logo} />
