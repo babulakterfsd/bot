@@ -1,16 +1,31 @@
-/* eslint-disable no-script-url */
-/* eslint-disable react/jsx-no-script-url */
-/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-/* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable no-unused-vars */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import Logo from '../assets/images/logo.png';
 import Solicon from '../assets/images/solicon.PNG';
+import useAuth from '../Hooks/UseAuth';
 
 function Login() {
+    const history = useNavigate();
+    const location = useLocation();
+    const googleRedirect = location?.state?.from || '/';
+    const { signinGoogle, setIsLoading } = useAuth();
+
+    const handlegoolesign = () => {
+        signinGoogle()
+            .then((result) => {
+                Swal.fire('Good job!', 'Log In SuccessFull!', 'success');
+                return history('/');
+            })
+            .finally(() => setIsLoading(false))
+            .catch((error) => {
+                Swal.fire('Something went wrong!', `${error.message}`, 'error');
+            })
+            .finally(() => setIsLoading(false));
+    };
+
     return (
         <div className="main-container px-4">
             <div className="min-h-full flex items-center justify-center py-12 lg:my-10 px-4 sm:px-6 lg:px-8 bg-[#FAF9F6] w-full lg:w-1/2 mx-auto rounded-lg text-gray-900 my-6">
@@ -83,7 +98,7 @@ function Login() {
 
                             <div className="text-sm">
                                 <a
-                                    href="#"
+                                    href="fb.com"
                                     className="font-medium text-indigo-600 hover:text-indigo-500"
                                 >
                                     {' '}
@@ -110,6 +125,7 @@ function Login() {
                         <button
                             type="button"
                             className="flex justify-center items-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none mb-3 lg:mb-0"
+                            onClick={handlegoolesign}
                         >
                             <svg
                                 className="w-4 h-4 mr-2 -ml-1"
