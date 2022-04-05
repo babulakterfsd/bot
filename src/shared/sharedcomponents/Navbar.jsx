@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logorobot from '../../assets/images/logo.png';
+import './Navbar.css';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,7 @@ function Navbar() {
 
     return (
         <div className="main-container lg:mt-6 lg:px-3">
-            <nav className="bg-reddishYellow py-2 px-4 lg:bg-transparent">
+            <nav className="bg-reddishYellow py-2 lg:bg-transparent mb_nav">
                 <div className="flex flex-wrap justify-between items-center">
                     <button type="button" onClick={() => navigate('/')} className="flex">
                         <img className="w-28 md:w-auto" src={logorobot} alt="" />
@@ -70,14 +71,14 @@ function Navbar() {
                     </div>
                 </div>
                 {/* mobile */}
-                <div className="w-full md:w-auto block lg:hidden">
+                <div className="w-full md:w-auto block lg:hidden absolute my_nav">
                     <ul
                         className={`${
                             isOpen ? 'block' : 'hidden'
-                        } flex flex-col items-center mt-4 text-base sm:text-lg text-main-white space-y-4`}
+                        } flex flex-col items-center mt-4 text-base sm:text-lg text-main-white`}
                     >
                         <li
-                            className="mt-6"
+                            className="mt-6 mobile_nav"
                             onClick={() => {
                                 setIsOpen(false);
                             }}
@@ -88,6 +89,7 @@ function Navbar() {
                             onClick={() => {
                                 setIsOpen(false);
                             }}
+                            className="mobile_nav"
                         >
                             Security
                         </li>
@@ -95,6 +97,7 @@ function Navbar() {
                             onClick={() => {
                                 setIsOpen(false);
                             }}
+                            className="mobile_nav"
                         >
                             Contact
                         </li>
