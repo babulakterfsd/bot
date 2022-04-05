@@ -1,7 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import logorobot from '../../assets/images/logo.png';
+import useAuth from '../../Hooks/UseAuth';
 import './Navbar.css';
 
 function Navbar() {
@@ -12,6 +15,25 @@ function Navbar() {
         setIsOpen(!isOpen);
     };
 
+    const { user, logOut, setUser, setIsLoading } = useAuth();
+    const { displayName, photoURL } = user;
+    const history = useNavigate();
+    const location = useLocation();
+    const googleRedirect = location?.state?.from || '/';
+
+    const handleLogout = () => {
+        logOut()
+            .then((result) => {
+                setUser({});
+                Swal.fire('Good job!', 'Log Out SuccessFull!', 'success');
+                return navigate('/Login');
+            })
+            .catch((error) => {
+                Swal.fire('Something went wrong!', `${error.message}`, 'error');
+            })
+            .finally(() => setIsLoading(false));
+    };
+
     return (
         <div className="main-container lg:mt-6 lg:px-3">
             <nav className="bg-reddishYellow py-2 lg:bg-transparent mb_nav">
@@ -20,13 +42,27 @@ function Navbar() {
                         <img className="w-28 md:w-auto" src={logorobot} alt="" />
                     </button>
                     <div className="flex md:order-2">
-                        <button
-                            type="button"
-                            className="primary-btn mr-2"
-                            onClick={() => navigate('/login')}
-                        >
-                            Login
-                        </button>
+                        {!user?.displayName ? (
+                            <button
+                                type="button"
+                                className="primary-btn mr-2"
+                                onClick={() => navigate('/login')}
+                            >
+                                Login
+                            </button>
+                        ) : (
+                            <>
+                                <h1>{user?.displayName}</h1>
+                                <img
+                                    style={{
+                                        width: '45px',
+                                        borderRadius: '50%',
+                                    }}
+                                    src={photoURL}
+                                    alt=""
+                                />
+                            </>
+                        )}
                         <button
                             onClick={toggleMenu}
                             data-collapse-toggle="NavBarId"
