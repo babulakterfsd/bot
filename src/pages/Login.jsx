@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
@@ -7,20 +9,19 @@ import Logo from '../assets/images/logo.png';
 import Solicon from '../assets/images/solicon.PNG';
 import useAuth from '../Hooks/UseAuth';
 
-function Login({ props }) {
+function Login() {
     const history = useNavigate();
     const location = useLocation();
     const googleRedirect = location?.state?.from || '/';
     const { signinGoogle, signInWithEmail, setUser, getEmail, getPassword, setIsLoading, user } =
         useAuth();
-
     useEffect(() => {
-        if (!user) {
-            history.push('/');
+        if (user?.uid) {
+            history('/');
+        } else {
+            history('/login');
         }
-        history('/');
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user]);
+    }, [user?.uid]);
 
     const emaillogin = (e) => {
         e.preventDefault();
