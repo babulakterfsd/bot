@@ -1,10 +1,45 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import Logo from '../assets/images/logo.png';
 import Solicon from '../assets/images/solicon.PNG';
+import useAuth from '../Hooks/UseAuth';
 
 function Register() {
+    const { signinGoogle, getName, singUp, getEmail, getPassword, setNameAndImage, setIsLoading } =
+        useAuth();
+    const history = useNavigate();
+    const location = useLocation();
+    const redirect = location?.state?.from || '/';
+    const googleRedirect = location?.state?.from || '/';
+    const register = (e) => {
+        e.preventDefault();
+        singUp()
+            .then((result) => {
+                setNameAndImage();
+                Swal.fire('Good job!', 'Account has been created SuccessFull!', 'success');
+                setTimeout(() => history(redirect), 3000);
+            })
+            .catch((error) => {
+                Swal.fire('Something went wrong!', `${error.message}`, 'error');
+            })
+            .finally(() => setIsLoading(false));
+    };
+    const handleGooglereg = () => {
+        signinGoogle()
+            .then((result) => {
+                Swal.fire('Good job!', 'Create Account SuccessFull!', 'success');
+                return history(googleRedirect);
+            })
+            .finally(() => setIsLoading(false))
+            .catch((error) => {
+                Swal.fire('Something went wrong!', `${error.message}`, 'error');
+            })
+            .finally(() => setIsLoading(false));
+    };
+
     return (
         <div className="main-container px-4">
             <div className="min-h-full flex items-center justify-center px-4 py-12 lg:my-10 sm:px-6 lg:px-8 bg-[#FAF9F6] w-full lg:w-1/2 mx-auto rounded-lg my-6">
@@ -25,7 +60,7 @@ function Register() {
                             </Link>
                         </p>
                     </div>
-                    <form className="mt-8 space-y-6" onSubmit={(e) => e.preventDefault()}>
+                    <form className="mt-8 space-y-6" onSubmit={register}>
                         <input type="hidden" name="remember" value="true" />
                         <div className="rounded-md shadow-sm -space-y-px">
                             <div>
@@ -35,6 +70,7 @@ function Register() {
                                 <input
                                     id="name"
                                     name="name"
+                                    onBlur={getName}
                                     type="text"
                                     autoComplete="name"
                                     required
@@ -49,6 +85,7 @@ function Register() {
                                 <input
                                     id="email-address"
                                     name="email"
+                                    onBlur={getEmail}
                                     type="email"
                                     autoComplete="email"
                                     required
@@ -63,6 +100,7 @@ function Register() {
                                 <input
                                     id="password"
                                     name="password"
+                                    onBlur={getPassword}
                                     type="password"
                                     autoComplete="current-password"
                                     required
@@ -91,6 +129,7 @@ function Register() {
                             <button
                                 type="button"
                                 className="flex justify-center items-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none mb-3 lg:mb-0"
+                                onClick={handleGooglereg}
                             >
                                 <svg
                                     className="w-4 h-4 mr-2 -ml-1"
