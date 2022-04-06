@@ -6,7 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Logo from '../assets/images/logo.png';
 import Solicon from '../assets/images/solicon.PNG';
-import useAuth from '../Hooks/UseAuth';
+import UseAuth from '../Hooks/UseAuth';
 
 function Register() {
     const {
@@ -18,7 +18,7 @@ function Register() {
         setNameAndImage,
         setIsLoading,
         user,
-    } = useAuth();
+    } = UseAuth();
     const history = useNavigate();
 
     useEffect(() => {

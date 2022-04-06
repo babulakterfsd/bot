@@ -7,14 +7,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Logo from '../assets/images/logo.png';
 import Solicon from '../assets/images/solicon.PNG';
-import useAuth from '../Hooks/UseAuth';
+import UseAuth from '../Hooks/UseAuth';
 
 function Login() {
     const history = useNavigate();
     const location = useLocation();
     const googleRedirect = location?.state?.from || '/';
     const { signinGoogle, signInWithEmail, setUser, getEmail, getPassword, setIsLoading, user } =
-        useAuth();
+        UseAuth();
     useEffect(() => {
         if (user?.uid) {
             history('/');
