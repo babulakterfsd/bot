@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Logo from '../assets/images/logo.png';
@@ -8,9 +9,26 @@ import Solicon from '../assets/images/solicon.PNG';
 import useAuth from '../Hooks/UseAuth';
 
 function Register() {
-    const { signinGoogle, getName, singUp, getEmail, getPassword, setNameAndImage, setIsLoading } =
-        useAuth();
+    const {
+        signinGoogle,
+        getName,
+        singUp,
+        getEmail,
+        getPassword,
+        setNameAndImage,
+        setIsLoading,
+        user,
+    } = useAuth();
     const history = useNavigate();
+
+    useEffect(() => {
+        if (user?.uid) {
+            history('/');
+        } else {
+            history('/register');
+        }
+    }, [user?.uid]);
+
     const location = useLocation();
     const redirect = location?.state?.from || '/';
     const googleRedirect = location?.state?.from || '/';
