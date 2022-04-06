@@ -1,9 +1,10 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Logo from '../assets/images/logo.png';
 import Solicon from '../assets/images/solicon.PNG';
@@ -13,24 +14,17 @@ function Login() {
     const history = useNavigate();
     const location = useLocation();
     const googleRedirect = location?.state?.from || '/';
+    const emailRedirect = location?.state?.from || '/';
     const { signinGoogle, signInWithEmail, setUser, getEmail, getPassword, setIsLoading, user } =
         UseAuth();
-    useEffect(() => {
-        if (user?.uid) {
-            history('/');
-        } else {
-            history('/login');
-        }
-    }, [user?.uid]);
 
     const emaillogin = (e) => {
         e.preventDefault();
         signInWithEmail()
             .then((result) => {
-                console.log(result);
                 setUser(result.user);
                 Swal.fire('Good job!', 'email Log In SuccessFull!', 'success');
-                return history('/');
+                return history(emailRedirect);
             })
             .catch((error) => {
                 Swal.fire('Something went wrong!', `${error.message}`, 'error');
@@ -42,7 +36,7 @@ function Login() {
         signinGoogle()
             .then((result) => {
                 Swal.fire('Good job!', 'Log In SuccessFull!', 'success');
-                return history('/');
+                return history(googleRedirect);
             })
             .finally(() => setIsLoading(false))
             .catch((error) => {
@@ -50,6 +44,13 @@ function Login() {
             })
             .finally(() => setIsLoading(false));
     };
+    useEffect(() => {
+        if (user?.email) {
+            history('/');
+        } else {
+            <Navigate to="/login" />;
+        }
+    }, [user?.email]);
 
     return (
         <div className="main-container px-4">
