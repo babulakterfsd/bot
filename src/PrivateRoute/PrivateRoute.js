@@ -2,15 +2,19 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import UseAuth from '../Hooks/UseAuth';
 
 function PrivateRoute({ children }) {
-    const { user } = UseAuth();
+    const { user, isLoading } = UseAuth();
+    const location = useLocation();
+    if (isLoading) {
+        return <div className="text-center my-5">..........Loading..........</div>;
+    }
     if (user?.email) {
         return children;
     }
-    return <Navigate to="/login" />;
+    return <Navigate to="/login" state={{ from: location }} />;
 }
 
 export default PrivateRoute;

@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Logo from '../assets/images/logo.png';
 import Solicon from '../assets/images/solicon.PNG';
@@ -20,14 +20,6 @@ function Register() {
         user,
     } = UseAuth();
     const history = useNavigate();
-
-    useEffect(() => {
-        if (user?.uid) {
-            history('/');
-        } else {
-            history('/register');
-        }
-    }, [user?.uid]);
 
     const location = useLocation();
     const redirect = location?.state?.from || '/';
@@ -57,7 +49,13 @@ function Register() {
             })
             .finally(() => setIsLoading(false));
     };
-
+    useEffect(() => {
+        if (user?.email) {
+            history('/');
+        } else {
+            <Navigate to="/register" />;
+        }
+    }, [user?.email]);
     return (
         <div className="main-container px-4">
             <div className="min-h-full flex items-center justify-center px-4 py-12 lg:my-10 sm:px-6 lg:px-8 bg-[#FAF9F6] w-full lg:w-1/2 mx-auto rounded-lg my-6">
