@@ -72,6 +72,7 @@ function Navbar() {
                                 </div>
                             </>
                         )}
+
                         <button
                             onClick={toggleMenu}
                             data-collapse-toggle="NavBarId"

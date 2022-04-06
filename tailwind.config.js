@@ -1,6 +1,7 @@
+/* eslint-disable global-require */
 module.exports = {
     darkMode: 'class',
-    content: ['./src/**/*.{js,jsx,ts,tsx}'],
+    content: ['./src/**/*.{js,jsx,ts,tsx}', './node_modules/flowbite/**/*.js'],
     theme: {
         extend: {
             screens: {},
@@ -19,5 +20,5 @@ module.exports = {
             },
         },
     },
-    plugins: [],
+    plugins: [require('flowbite/plugin')],
 };

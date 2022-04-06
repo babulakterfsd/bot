@@ -1,23 +1,32 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Logo from '../assets/images/logo.png';
 import Solicon from '../assets/images/solicon.PNG';
 import useAuth from '../Hooks/UseAuth';
 
-function Login() {
+function Login({ props }) {
     const history = useNavigate();
     const location = useLocation();
     const googleRedirect = location?.state?.from || '/';
-    const { signinGoogle, signInWithEmail, setUser, getEmail, getPassword, setIsLoading } =
+    const { signinGoogle, signInWithEmail, setUser, getEmail, getPassword, setIsLoading, user } =
         useAuth();
+
+    useEffect(() => {
+        if (!user) {
+            history.push('/');
+        }
+        history('/');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user]);
 
     const emaillogin = (e) => {
         e.preventDefault();
         signInWithEmail()
             .then((result) => {
+                console.log(result);
                 setUser(result.user);
                 Swal.fire('Good job!', 'email Log In SuccessFull!', 'success');
                 return history('/');
