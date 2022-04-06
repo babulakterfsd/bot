@@ -25,7 +25,7 @@ const UseFirebase = () => {
     const [user, setUser] = useState({});
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
-    const [photo, setPhoto] = useState('');
+    // const [photo, setPhoto] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
@@ -43,23 +43,23 @@ const UseFirebase = () => {
         setPassword(e?.target?.value);
     }
     // Get photoUrl
-    function getPhoto(e) {
-        setPhoto(e?.target?.value);
-    }
+    // function getPhoto(e) {
+    //     setPhoto(e?.target?.value);
+    // }
     // sign up with email password
     function singUp() {
         setIsLoading(true);
-        saveUser(email, name);
+        // saveUser(email, name);
         return createUserWithEmailAndPassword(auth, email, password);
     }
     // set name and profile image url
     function setNameAndImage() {
         updateProfile(auth.currentUser, {
             displayName: name,
-            photoURL: photo,
+            // photoURL: photo,
         })
             .then((result) => {
-                Swal.fire('Good job!', 'Set Image Your Profile SuccessFull!', 'success');
+                Swal.fire('Good job!', 'Update Profile SuccessFull!', 'success');
             })
             .catch((error) => {
                 Swal.fire('Something went wrong!', `${error.message}`, 'error');
@@ -123,7 +123,7 @@ const UseFirebase = () => {
         getPassword,
         getEmail,
         singUp,
-        getPhoto,
+        // getPhoto,
         getName,
         passwordReset,
         isLoading,

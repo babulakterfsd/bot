@@ -11,7 +11,22 @@ function Login() {
     const history = useNavigate();
     const location = useLocation();
     const googleRedirect = location?.state?.from || '/';
-    const { signinGoogle, setIsLoading } = useAuth();
+    const { signinGoogle, signInWithEmail, setUser, getEmail, getPassword, setIsLoading } =
+        useAuth();
+
+    const emaillogin = (e) => {
+        e.preventDefault();
+        signInWithEmail()
+            .then((result) => {
+                setUser(result.user);
+                Swal.fire('Good job!', 'email Log In SuccessFull!', 'success');
+                return history('/');
+            })
+            .catch((error) => {
+                Swal.fire('Something went wrong!', `${error.message}`, 'error');
+            })
+            .finally(() => setIsLoading(false));
+    };
 
     const handlegoolesign = () => {
         signinGoogle()
@@ -46,7 +61,7 @@ function Login() {
                             </Link>
                         </p>
                     </div>
-                    <form className="mt-8 space-y-6" onSubmit={(e) => e.preventDefault()}>
+                    <form className="mt-8 space-y-6" onSubmit={emaillogin}>
                         <input type="hidden" name="remember" value="true" />
                         <div className="rounded-md shadow-sm -space-y-px">
                             <div>
@@ -56,6 +71,7 @@ function Login() {
                                 <input
                                     id="email-address"
                                     name="email"
+                                    onBlur={getEmail}
                                     type="email"
                                     autoComplete="email"
                                     required
@@ -70,6 +86,7 @@ function Login() {
                                 <input
                                     id="password"
                                     name="password"
+                                    onBlur={getPassword}
                                     type="password"
                                     autoComplete="current-password"
                                     required

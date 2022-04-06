@@ -26,7 +26,7 @@ function Navbar() {
             .then((result) => {
                 setUser({});
                 Swal.fire('Good job!', 'Log Out SuccessFull!', 'success');
-                return navigate('/Login');
+                return navigate('/');
             })
             .catch((error) => {
                 Swal.fire('Something went wrong!', `${error.message}`, 'error');
@@ -61,6 +61,15 @@ function Navbar() {
                                     src={photoURL}
                                     alt=""
                                 />
+                                <div className="text-center">
+                                    <button
+                                        type="button"
+                                        className="primary-btn mr-2"
+                                        onClick={handleLogout}
+                                    >
+                                        Logout
+                                    </button>
+                                </div>
                             </>
                         )}
                         <button
