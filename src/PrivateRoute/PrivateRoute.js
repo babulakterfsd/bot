@@ -2,14 +2,15 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 import React from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
-import useAuth from '../Hooks/UseAuth';
+import { Navigate } from 'react-router-dom';
+import UseAuth from '../Hooks/UseAuth';
 
-function PrivateRoute() {
-    const auth = useAuth();
-    const history = useNavigate();
-
-    return auth ? <Outlet /> : history('/login');
+function PrivateRoute({ children }) {
+    const { user } = UseAuth();
+    if (user?.email) {
+        return children;
+    }
+    return <Navigate to="/login" />;
 }
 
 export default PrivateRoute;

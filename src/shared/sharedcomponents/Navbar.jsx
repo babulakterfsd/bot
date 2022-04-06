@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import logorobot from '../../assets/images/logo.png';
-import useAuth from '../../Hooks/UseAuth';
+import UseAuth from '../../Hooks/UseAuth';
 import styles from '../../styles/Navbar.module.css';
 
 function Navbar() {
@@ -15,8 +15,8 @@ function Navbar() {
         setIsOpen(!isOpen);
     };
 
-    const { user, logOut, setUser, setIsLoading } = useAuth();
-    const { displayName, photoURL } = user;
+    const { user, logOut, setUser, setIsLoading } = UseAuth();
+    // const { displayName, photoURL } = user;
     const history = useNavigate();
     const location = useLocation();
     const googleRedirect = location?.state?.from || '/';
@@ -58,7 +58,7 @@ function Navbar() {
                                         width: '45px',
                                         borderRadius: '50%',
                                     }}
-                                    src={photoURL}
+                                    src=""
                                     alt=""
                                 />
                                 <div className="text-center">
@@ -110,7 +110,9 @@ function Navbar() {
                     </div>
                     <div className="hidden w-full lg:block md:w-auto" id="NavBarId">
                         <ul className="flex flex-col mt-4 lg:flex-row lg:space-x-8 md:mt-0 text-base md:text-xl  text-offWhite">
-                            <li className="hover:text-reddishYellow">About</li>
+                            <li className="hover:text-reddishYellow">
+                                <NavLink to="/about">About</NavLink>
+                            </li>
                             <li className="hover:text-reddishYellow">Security</li>
                             <li className="hover:text-reddishYellow">Contact</li>
                         </ul>
