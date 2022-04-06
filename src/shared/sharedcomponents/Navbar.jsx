@@ -48,7 +48,7 @@ function Navbar() {
                                 className="primary-btn mr-2"
                                 onClick={() => navigate('/login')}
                             >
-                                LoGin
+                                Login
                             </button>
                         ) : (
                             <>
