@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import logorobot from '../../assets/images/logo.png';
 import useAuth from '../../Hooks/UseAuth';
-import './Navbar.css';
+import styles from '../../styles/Navbar.module.css';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +36,7 @@ function Navbar() {
 
     return (
         <div className="main-container lg:mt-6 lg:px-3">
-            <nav className="bg-reddishYellow py-2 lg:bg-transparent mb_nav">
+            <nav className={`${styles.mb_nav} bg-reddishYellow py-2 lg:bg-transparent`}>
                 <div className="flex flex-wrap justify-between items-center">
                     <button type="button" onClick={() => navigate('/')} className="flex">
                         <img className="w-28 md:w-auto" src={logorobot} alt="" />
@@ -107,14 +107,14 @@ function Navbar() {
                     </div>
                 </div>
                 {/* mobile */}
-                <div className="w-full md:w-auto block lg:hidden absolute my_nav">
+                <div className={`${styles.my_nav} w-full md:w-auto block lg:hidden absolute`}>
                     <ul
                         className={`${
                             isOpen ? 'block' : 'hidden'
                         } flex flex-col items-center mt-4 text-base sm:text-lg text-main-white`}
                     >
                         <li
-                            className="mt-6 mobile_nav"
+                            className={`${styles.mobile_nav} mt-6`}
                             onClick={() => {
                                 setIsOpen(false);
                             }}
@@ -125,7 +125,7 @@ function Navbar() {
                             onClick={() => {
                                 setIsOpen(false);
                             }}
-                            className="mobile_nav"
+                            className={`${styles.mobile_nav}`}
                         >
                             Security
                         </li>
@@ -133,7 +133,7 @@ function Navbar() {
                             onClick={() => {
                                 setIsOpen(false);
                             }}
-                            className="mobile_nav"
+                            className={`${styles.mobile_nav}`}
                         >
                             Contact
                         </li>
