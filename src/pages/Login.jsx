@@ -10,7 +10,7 @@ import useAuth from '../Hooks/UseAuth';
 function Login() {
     const history = useNavigate();
     const location = useLocation();
-    const googleRedirect = location?.state?.from || '/';
+    const googleRedirect = location?.state?.from || '/dashboard';
     const { signinGoogle, signInWithEmail, setUser, getEmail, getPassword, setIsLoading } =
         useAuth();
 
@@ -20,7 +20,7 @@ function Login() {
             .then((result) => {
                 setUser(result.user);
                 Swal.fire('Good job!', 'email Log In SuccessFull!', 'success');
-                return history('/');
+                return history('/dashboard');
             })
             .catch((error) => {
                 Swal.fire('Something went wrong!', `${error.message}`, 'error');
@@ -32,7 +32,7 @@ function Login() {
         signinGoogle()
             .then((result) => {
                 Swal.fire('Good job!', 'Log In SuccessFull!', 'success');
-                return history('/');
+                return history('/dashboard');
             })
             .finally(() => setIsLoading(false))
             .catch((error) => {
