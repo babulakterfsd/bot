@@ -33,7 +33,7 @@
   box-sizing: border-box;
   background: #000;
   backdrop-filter: blur(81.5485px);
-  width: 100% !important;
+  /* width: 100% !important; */
 }
 @media only screen and (max-width: 800px) {
   .nav_btn {
