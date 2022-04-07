@@ -1,16 +1,26 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Logo from '../assets/images/logo.png';
 import Solicon from '../assets/images/solicon.PNG';
-import useAuth from '../Hooks/UseAuth';
+import UseAuth from '../Hooks/UseAuth';
 
 function Register() {
-    const { signinGoogle, getName, singUp, getEmail, getPassword, setNameAndImage, setIsLoading } =
-        useAuth();
+    const {
+        signinGoogle,
+        getName,
+        singUp,
+        getEmail,
+        getPassword,
+        setNameAndImage,
+        setIsLoading,
+        user,
+    } = UseAuth();
     const history = useNavigate();
+
     const location = useLocation();
     const redirect = location?.state?.from || '/';
     const googleRedirect = location?.state?.from || '/';
@@ -39,7 +49,13 @@ function Register() {
             })
             .finally(() => setIsLoading(false));
     };
-
+    useEffect(() => {
+        if (user?.email) {
+            history('/');
+        } else {
+            <Navigate to="/register" />;
+        }
+    }, [user?.email]);
     return (
         <div className="main-container px-4">
             <div className="min-h-full flex items-center justify-center px-4 py-12 lg:my-10 sm:px-6 lg:px-8 bg-[#FAF9F6] w-full lg:w-1/2 mx-auto rounded-lg my-6">
