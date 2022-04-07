@@ -9,6 +9,7 @@ import styles from '../../styles/Navbar.module.css';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [dropdownshow, setDropdownshow] = useState(false);
     const navigate = useNavigate();
 
     const toggleMenu = () => {
@@ -31,7 +32,10 @@ function Navbar() {
             .catch((error) => {
                 Swal.fire('Something went wrong!', `${error.message}`, 'error');
             })
-            .finally(() => setIsLoading(false));
+            .finally(() => {
+                setIsLoading(false);
+                setDropdownshow(false);
+            });
     };
 
     return (
@@ -52,24 +56,52 @@ function Navbar() {
                             </button>
                         ) : (
                             <>
-                                <h1>{user?.displayName}</h1>
-                                <img
-                                    style={{
-                                        width: '45px',
-                                        borderRadius: '50%',
-                                    }}
-                                    src=""
-                                    alt=""
-                                />
-                                <div className="text-center">
-                                    <button
-                                        type="button"
-                                        className="primary-btn mr-2"
-                                        onClick={handleLogout}
-                                    >
-                                        Logout
-                                    </button>
-                                </div>
+                                <button
+                                    type="button"
+                                    onClick={() => setDropdownshow((prevState) => !prevState)}
+                                    className="flex items-center px-2 py-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-red-600 border border-transparent rounded-md hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700"
+                                >
+                                    <img
+                                        src="https://i.ibb.co/PDnnXFK/babulakter.jpg"
+                                        alt="propic"
+                                        className="h-12 w-12 rounded-full"
+                                    />
+                                </button>
+
+                                {dropdownshow && (
+                                    <div className=" bg-darkishBlack text-white mt-16 -ml-32 py-2 px-1 rounded-sm absolute z-[99]">
+                                        <div className="py-3 px-4 text-sm text-white ">
+                                            <div>{user?.displayName}</div>
+                                            <div className="font-medium truncate">
+                                                {user?.email}
+                                            </div>
+                                        </div>
+                                        <hr className="opacity-5" />
+                                        <ul className=" text-white">
+                                            <li
+                                                className="block py-2 px-4 text-white text-center"
+                                                onClick={() => setDropdownshow(false)}
+                                            >
+                                                <NavLink
+                                                    to="/dashboard"
+                                                    className="block w-full mx-auto"
+                                                >
+                                                    Dashboard
+                                                </NavLink>
+                                            </li>
+                                        </ul>
+                                        <hr className="opacity-5" />
+                                        <div className="block">
+                                            <button
+                                                type="button"
+                                                onClick={handleLogout}
+                                                className="pt-1.5 pb-0 w-full"
+                                            >
+                                                Logout
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
                             </>
                         )}
 
