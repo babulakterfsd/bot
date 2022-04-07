@@ -16,7 +16,7 @@ function Navbar() {
     };
 
     const { user, logOut, setUser, setIsLoading } = UseAuth();
-    // const { displayName, photoURL } = user;
+    const { displayName, photoURL } = user;
     const history = useNavigate();
     const location = useLocation();
     const googleRedirect = location?.state?.from || '/';
@@ -33,7 +33,7 @@ function Navbar() {
             })
             .finally(() => setIsLoading(false));
     };
-
+    const [dropdownshow, setDropdownshow] = useState(false);
     return (
         <div className="main-container lg:mt-6 lg:px-3">
             <nav className={`${styles.mb_nav} bg-reddishYellow py-2 lg:bg-transparent`}>
@@ -52,7 +52,54 @@ function Navbar() {
                             </button>
                         ) : (
                             <>
-                                <h1>{user?.displayName}</h1>
+                                <button
+                                    type="button"
+                                    onClick={() => setDropdownshow((prevState) => !prevState)}
+                                >
+                                    <img
+                                        src="https://i.ibb.co/PDnnXFK/babulakter.jpg"
+                                        alt="propic"
+                                        className="h-12 w-12 rounded-full"
+                                    />
+                                </button>
+
+                                {dropdownshow && (
+                                    <div className={`${styles.customDropdownInformation}`}>
+                                        <div
+                                            className={`${styles.menucontainer}  bg-darkishBlack text-white mt-16 -ml-32 py-2 px-1 rounded-sm`}
+                                        >
+                                            <div className="py-3 px-4 text-sm text-white ">
+                                                <div>{user?.displayName}</div>
+                                                <div className="font-medium truncate">
+                                                    {user?.email}
+                                                </div>
+                                            </div>
+                                            <hr className="opacity-5" />
+                                            <ul className=" text-white">
+                                                <li className="block py-2 px-4 text-white text-center">
+                                                    <NavLink
+                                                        to="/dashboard"
+                                                        className="block w-full mx-auto"
+                                                    >
+                                                        Dashboard
+                                                    </NavLink>
+                                                </li>
+                                            </ul>
+                                            <hr className="opacity-5" />
+                                            <div className="block">
+                                                <button
+                                                    type="button"
+                                                    onClick={handleLogout}
+                                                    className="pt-1.5 pb-0"
+                                                >
+                                                    Logout
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* <h1>{user?.displayName}</h1>
                                 <img
                                     style={{
                                         width: '45px',
@@ -69,7 +116,7 @@ function Navbar() {
                                     >
                                         Logout
                                     </button>
-                                </div>
+                                </div> */}
                             </>
                         )}
 

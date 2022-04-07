@@ -75,3 +75,11 @@
     border-radius: 10px;
   }
 }
+
+/* profile dropdown */
+.customDropdownInformation {
+ position: relative;
+}
+.menucontainer {
+  position: absolute;
+}
