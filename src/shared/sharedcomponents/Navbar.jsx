@@ -17,7 +17,7 @@ function Navbar() {
     };
 
     const { user, logOut, setUser, setIsLoading } = UseAuth();
-    // const { displayName, photoURL } = user;
+    const { displayName, photoURL } = user;
     const history = useNavigate();
     const location = useLocation();
     const googleRedirect = location?.state?.from || '/';
@@ -59,7 +59,7 @@ function Navbar() {
                                 <button
                                     type="button"
                                     onClick={() => setDropdownshow((prevState) => !prevState)}
-                                    className="flex items-center px-2 py-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-red-600 border border-transparent rounded-md hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700"
+                                    className="flex items-center px-2 py-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out "
                                 >
                                     <img
                                         src="https://i.ibb.co/PDnnXFK/babulakter.jpg"
@@ -79,7 +79,7 @@ function Navbar() {
                                         <hr className="opacity-5" />
                                         <ul className=" text-white">
                                             <li
-                                                className="block py-2 px-4 text-white text-center"
+                                                className="block py-2 px-4 text-white text-center hover:text-slate-700"
                                                 onClick={() => setDropdownshow(false)}
                                             >
                                                 <NavLink
@@ -95,7 +95,7 @@ function Navbar() {
                                             <button
                                                 type="button"
                                                 onClick={handleLogout}
-                                                className="pt-1.5 pb-0 w-full"
+                                                className="pt-1.5 pb-0 w-full hover:text-slate-700"
                                             >
                                                 Logout
                                             </button>

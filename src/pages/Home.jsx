@@ -12,6 +12,7 @@ function Home() {
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quidem
                             molestiae numquam velit natus.
                         </p>
+
                         <div className="text-center md:mt-8">
                             <img className="h-64 mx-auto" src={bot} alt="" />
                         </div>

@@ -13,8 +13,8 @@ import UseAuth from '../Hooks/UseAuth';
 function Login() {
     const history = useNavigate();
     const location = useLocation();
-    const googleRedirect = location?.state?.from || '/';
-    const emailRedirect = location?.state?.from || '/';
+    const googleRedirect = location?.state?.from || '/dashboard';
+    const emailRedirect = location?.state?.from || '/dashboard';
     const { signinGoogle, signInWithEmail, setUser, getEmail, getPassword, setIsLoading, user } =
         UseAuth();
 
