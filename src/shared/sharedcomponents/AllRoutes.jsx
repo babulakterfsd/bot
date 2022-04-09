@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import About from '../../pages/About';
 import Dashboard from '../../pages/Dashboard';
 import Home from '../../pages/Home';
 import Login from '../../pages/Login';
@@ -21,15 +20,6 @@ function AllRoutes() {
                     element={
                         <PrivateRoute>
                             <Dashboard />
-                        </PrivateRoute>
-                    }
-                />
-
-                <Route
-                    path="about"
-                    element={
-                        <PrivateRoute>
-                            <About />
                         </PrivateRoute>
                     }
                 />
