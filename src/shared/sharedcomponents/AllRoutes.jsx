@@ -5,9 +5,9 @@ import Home from '../../pages/Home';
 import Login from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import Register from '../../pages/Register';
-import PrivateRoute from '../../PrivateRoute/PrivateRoute';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function AllRoutes() {
     return (
