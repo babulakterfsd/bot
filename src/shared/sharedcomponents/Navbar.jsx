@@ -142,9 +142,7 @@ function Navbar() {
                     </div>
                     <div className="hidden w-full lg:block md:w-auto">
                         <ul className="flex flex-col mt-4 lg:flex-row lg:space-x-8 md:mt-0 text-base md:text-xl  text-offWhite">
-                            <li className="hover:text-reddishYellow">
-                                <NavLink to="/about">About</NavLink>
-                            </li>
+                            <li className="hover:text-reddishYellow">About</li>
                             <li className="hover:text-reddishYellow">Security</li>
                             <li className="hover:text-reddishYellow">Contact</li>
                         </ul>
