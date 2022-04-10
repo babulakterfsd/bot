@@ -31,7 +31,7 @@ function Dashboard() {
     };
 
     return (
-        <div className={`${styles.dashboard}`}>
+        <div className={`${styles.dashboard} pb-8`}>
             <div className="main-container">
                 {/* dropdown */}
                 <div className="flex justify-end p-8">
@@ -89,7 +89,7 @@ function Dashboard() {
                     <div className="col-span-12 lg:col-span-8 px-2 lg:px-0">
                         <BotSetting />
                     </div>
-                    <div className="col-span-12 mt-32 px-2 lg:px-0 mb-8 lg:mb-0">
+                    <div className="col-span-12 -mt-32 px-2 lg:px-0">
                         <BotStatistics />
                     </div>
                 </div>
