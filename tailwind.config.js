@@ -12,7 +12,7 @@ module.exports = {
                 offReddish: '#ce3528',
                 reddishWhite: '#2e2336',
                 darkishBlack: '#0f0c16',
-                orange: '#d25404',
+                orange: '#ff6500',
                 reddishDark: '#0d0914',
                 DEFAULT: '#FFFFFF',
             },
