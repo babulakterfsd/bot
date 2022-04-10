@@ -59,6 +59,11 @@ function Navbar() {
                                 <button
                                     type="button"
                                     onClick={() => setDropdownshow((prevState) => !prevState)}
+                                    onMouseLeave={() =>
+                                        setTimeout(() => {
+                                            setDropdownshow(false);
+                                        }, 3000)
+                                    }
                                     className="flex items-center px-2 py-1 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out "
                                 >
                                     <img

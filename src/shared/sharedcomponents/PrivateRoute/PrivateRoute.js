@@ -3,7 +3,7 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import UseAuth from '../Hooks/UseAuth';
+import UseAuth from '../../../Hooks/UseAuth';
 
 function PrivateRoute({ children }) {
     const { user, isLoading } = UseAuth();
