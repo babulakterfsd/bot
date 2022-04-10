@@ -1,11 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import notFound from '../assets/images/notfound.png';
+import Footer from '../shared/sharedcomponents/Footer';
+import Navbar from '../shared/sharedcomponents/Navbar';
 
 function NotFound() {
     const Navigate = useNavigate();
     return (
         <div>
+            <Navbar />
             <div className="my-container">
                 <div className="w-full -mt-10 mb-20 md:2/3 lg:w-1/2 mx-auto flex flex-col justify-center items-center">
                     <img src={notFound} alt="" />
@@ -21,6 +24,7 @@ function NotFound() {
                     </button>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

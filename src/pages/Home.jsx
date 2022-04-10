@@ -1,9 +1,12 @@
 import React from 'react';
 import bot from '../assets/images/home.gif';
+import Footer from '../shared/sharedcomponents/Footer';
+import Navbar from '../shared/sharedcomponents/Navbar';
 
 function Home() {
     return (
         <>
+            <Navbar />
             <div className="main-container ">
                 <div className="flex justify-center items-center min-h-screen text-center  relative">
                     <div>
@@ -19,7 +22,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-            {/* <div className="absolute bg-gray-800 opacity-[0.9] h-full w-full top-0 left-0" /> */}
+            <Footer />
         </>
     );
 }
