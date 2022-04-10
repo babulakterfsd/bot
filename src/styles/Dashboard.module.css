@@ -1,9 +1,22 @@
 .dashboard {
-  min-height: 100vh;
-  background-color: #0f0c16 !important;
-  background-image: url('../assets/images/dashboardbg.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  
+    min-height: 100vh;
+    background-image: url('../assets/images/dashboardbg.png') !important;
+    background-color: #000000;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    z-index: 999;
+}
+.BotStatus {
+    width: ;
+    :auto ;
+    height: 300px;
+    padding: 10px;
+    background-color: #2d2336;
+}
+.BotSetting {
+    height: 300px;
+    width: auto;
+    padding: 10px;
+    background-color: #1b1423;
 }
