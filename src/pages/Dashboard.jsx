@@ -10,7 +10,6 @@ import styles from '../styles/Dashboard.module.css';
 
 function Dashboard() {
     const { user, logOut, setUser, setIsLoading } = UseAuth();
-    // const { displayName, photoURL } = user;
     const [dropdownshow, setDropdownshow] = useState(false);
     const navigate = useNavigate();
 

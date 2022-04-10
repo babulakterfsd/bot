@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '../../styles/Dashboard.module.css';
 
 function BotSetting() {
     return (
-        <div>
-            <div style={{ height: '300px', width: 'auto', backgroundColor: '#b82292' }}>
+        <div className={`${styles.BotSetting}`}>
+            <div>
                 <p>this is bot setting</p>
             </div>
         </div>

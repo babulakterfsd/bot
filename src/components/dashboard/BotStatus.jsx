@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '../../styles/Dashboard.module.css';
 
 function BotStatus() {
     return (
-        <div>
-            <div style={{ height: '200px', width: 'auto', backgroundColor: '#202421' }}>
+        <div className={`${styles.BotStatus}`}>
+            <div>
                 <p>this is bot status</p>
             </div>
         </div>
