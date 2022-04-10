@@ -89,7 +89,7 @@ function Dashboard() {
                     <div className="col-span-12 lg:col-span-8 px-2 lg:px-0">
                         <BotSetting />
                     </div>
-                    <div className="col-span-12 -mt-32 px-2 lg:px-0">
+                    <div className="col-span-12 lg:-mt-32 px-2 lg:px-0">
                         <BotStatistics />
                     </div>
                 </div>
