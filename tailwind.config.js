@@ -10,7 +10,10 @@ module.exports = {
                 black: '#000000',
                 purple: '#4200FF',
                 offReddish: '#ce3528',
+                reddishWhite: '#2e2336',
                 darkishBlack: '#0f0c16',
+                orange: '#d25404',
+                reddishDark: '#0d0914',
                 DEFAULT: '#FFFFFF',
             },
 
