@@ -34,7 +34,7 @@ function Dashboard() {
         <div className={`${styles.dashboard}`}>
             <div className="main-container">
                 {/* dropdown */}
-                <div className="bg-darkishBlack flex justify-end p-8">
+                <div className="flex justify-end p-8">
                     <button
                         type="button"
                         onClick={() => setDropdownshow((prevState) => !prevState)}
@@ -82,14 +82,14 @@ function Dashboard() {
                     )}
                 </div>
                 {/* dashboard */}
-                <div className="grid grid-cols-12 gap-4">
-                    <div className="col-span-3">
+                <div className="grid grid-cols-12 gap-x-4 lg:gap-y-12 lg:px-32 min-h-screen mt-12 lg:mt-0">
+                    <div className="col-span-12 lg:col-span-3 px-2 lg:px-0 mb-28 lg:mb-0">
                         <BotStatus />
                     </div>
-                    <div className="col-span-9">
+                    <div className="col-span-12 lg:col-span-9 px-2 lg:px-0">
                         <BotSetting />
                     </div>
-                    <div className="col-span-12">
+                    <div className="col-span-12 mt-32 px-2 lg:px-0 mb-8 lg:mb-0">
                         <BotStatistics />
                     </div>
                 </div>
