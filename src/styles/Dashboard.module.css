@@ -1,4 +1,9 @@
 .dashboard {
   min-height: 100vh;
   background-color: #0f0c16 !important;
+  background-image: url('../assets/images/dashboardbg.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  
 }
