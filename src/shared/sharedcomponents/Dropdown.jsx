@@ -3,13 +3,13 @@ import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import React, { Fragment } from 'react';
 
-function Dropdown() {
+function Dropdown({ name }) {
     return (
         <div className="w-full">
             <Menu as="div" className="relative inline-block text-left">
                 <div>
-                    <Menu.Button className="flex justify-between w-full px-4 text-sm font-medium text-white bg-[#1b1423] rounded-md ">
-                        SubAccount Name
+                    <Menu.Button className="flex justify-between w-full pr-4 pl-12 lg:px-4 text-sm font-medium text-white bg-[#1b1423] rounded-md ">
+                        {name}
                         <ChevronDownIcon
                             className="w-5 h-5 ml-12 lg:ml-32 -mr-1 text-violet-200 hover:text-violet-100"
                             aria-hidden="true"
