@@ -93,9 +93,9 @@ function BotSetting() {
                         <select
                             className={`${styles.drop} bg-[#1b1423] w-full py-3 lg:w-64 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left border-0 focus:outline-none focus:ring-0 focus: focus:ring-violet-300`}
                         >
-                            <option>Coin</option>
-                            <option>Test Account 1</option>
-                            <option>Test Account 2</option>
+                            <option>Select Coin</option>
+                            <option>Coin 1</option>
+                            <option>Coin 2</option>
                         </select>
                     </div>
                 </div>
