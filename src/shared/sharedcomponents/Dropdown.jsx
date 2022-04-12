@@ -28,11 +28,9 @@ function Dropdown({ name }) {
                     <Menu.Items className="absolute right-0 w-56 mt-2 origin-top-right bg-black text-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <div className="px-1 py-1 ">
                             <Menu.Item>
-                                {() => (
-                                    <div className=" text-white text-center px-2 py-1 cursor-pointer hover:bg-darkishBlack ">
-                                        Test Account 1
-                                    </div>
-                                )}
+                                <div className=" text-white text-center px-2 py-1 cursor-pointer hover:bg-darkishBlack ">
+                                    Test Account 1
+                                </div>
                             </Menu.Item>
                         </div>
                         <div className="px-1 py-1 ">

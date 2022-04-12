@@ -1,14 +1,12 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
-import Dropdown from '../../shared/sharedcomponents/Dropdown';
 import styles from '../../styles/BotSetting.module.css';
 
 function BotSetting() {
     const [toggle, setToggle] = useState(true);
     const [leverage, setLeverage] = useState(5);
     const toggleClass = 'transform translate-x-full';
-
     return (
         <div className={`${styles.BotSetting} bg-reddishDark py-9 px-2 lg:p-9 -mt-16 rounded-lg`}>
             {/* heading and divider */}
@@ -53,8 +51,15 @@ function BotSetting() {
                 </div>
                 <div className="subaccount-dropdown flex flex-col lg:flex-row  items-center">
                     <div className="apikeytext lg:w-[30%] lg:mb-0" />
-                    <div className="bg-[#1b1423] w-full py-3 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left">
-                        <Dropdown name="Subaccount name" />
+                    <div className="dr bg-[#1b1423] w-full py-1 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left">
+                        {/* <Dropdown name="Subaccount name" /> */}
+                        <select
+                            className={`${styles.drop} bg-[#1b1423] w-full  rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left border-0 focus:outline-none focus:ring-0 focus: focus:ring-violet-300`}
+                        >
+                            <option>Select Subaccount</option>
+                            <option>Test Account 1</option>
+                            <option>Test Account 2</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -83,8 +88,15 @@ function BotSetting() {
             <div className="coin my-12 ">
                 <div className="apikey flex flex-col lg:flex-row items-center">
                     <div className="apikeytext lg:w-[30%] mb-1 lg:mb-0">Choose coin : </div>
-                    <div className="bg-[#1b1423] w-full lg:w-64 py-3 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left">
-                        <Dropdown name="Coin" />
+                    <div className="bg-[#1b1423] w-full lg:w-64 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left">
+                        {/* <Dropdown name="Coin" /> */}
+                        <select
+                            className={`${styles.drop} bg-[#1b1423] w-full py-3 lg:w-64 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left border-0 focus:outline-none focus:ring-0 focus: focus:ring-violet-300`}
+                        >
+                            <option>Coin</option>
+                            <option>Test Account 1</option>
+                            <option>Test Account 2</option>
+                        </select>
                     </div>
                 </div>
             </div>
