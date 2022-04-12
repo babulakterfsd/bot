@@ -117,7 +117,7 @@ function LineChart() {
         },
     };
     return (
-        <div>
+        <div className='bg-[#0d0a14] p-4'>
             <Line data={data} options={options} height={400} />
         </div>
     );
