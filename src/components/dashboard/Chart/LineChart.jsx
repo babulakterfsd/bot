@@ -43,10 +43,10 @@ function LineChart() {
 
     // console.log('chart', chart);
     const data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [
             {
-            label: '# of Votes',
+            label: 'Marketing sales',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -67,7 +67,7 @@ function LineChart() {
             borderWidth: 1
         },
         {
-            label: '# of value 2',
+            label: 'Cases sales',
             data: [4, 9, 10, 2, 3, 5],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -94,21 +94,14 @@ function LineChart() {
     const options = {
         maintainAspectRatio: false,
         scales: {
-            y: {
-              type: 'linear',
-              display: true,
-              position: 'left',
-            },
-            y1: {
-              type: 'linear',
-              display: true,
-              position: 'right',
-      
-              // grid line settings
-              grid: {
-                drawOnChartArea: false, // only want the grid lines for one axis to show up
+            x: {
+                // beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Sales Figures',
+                }
               },
-            },
+          
           },
         legend: {
             labels: {
