@@ -21,7 +21,7 @@ function BotStatistics() {
                             </div>
                             {/* visitors */}
                             <div className="visitor p-6 bg-[#0d0a12] min-h-[50%] rounded-lg my-5 lg:my-0">
-                                <p>this is visitor graph</p>
+                                <p>this is visitors graph</p>
                             </div>
                         </div>
                     </div>
