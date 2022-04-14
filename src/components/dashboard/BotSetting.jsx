@@ -8,7 +8,7 @@ function BotSetting() {
     const [leverage, setLeverage] = useState(5);
     const toggleClass = 'transform translate-x-full';
     return (
-        <div className={`${styles.BotSetting} bg-reddishDark py-9 px-2 lg:p-9 -mt-16 rounded-lg`}>
+        <div className={`${styles.BotSetting} bg-reddishDark py-9 mt-32 px-2 lg:p-9 rounded-lg`}>
             {/* heading and divider */}
             <h1 className="font-montserrat font-bold text-2xl mb-6">Settings</h1>
             <hr className="opacity-10" />

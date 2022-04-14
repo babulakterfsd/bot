@@ -2,9 +2,7 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import BotSetting from '../components/dashboard/BotSetting';
-import BotStatistics from '../components/dashboard/BotStatistics';
-import BotStatus from '../components/dashboard/BotStatus';
+import TabDash from '../components/dashboard/Tab/TabDash';
 import UseAuth from '../Hooks/UseAuth';
 import styles from '../styles/Dashboard.module.css';
 
@@ -82,17 +80,8 @@ function Dashboard() {
                     )}
                 </div>
                 {/* dashboard */}
-                <div className="grid grid-cols-12 gap-x-4 lg:gap-y-12 lg:px-32 min-h-screen mt-12 lg:mt-0">
-                    <div className="col-span-12 lg:col-span-4 px-2 lg:px-0 mb-28 lg:mb-0">
-                        <BotStatus />
-                    </div>
-                    <div className="col-span-12 lg:col-span-8 px-2 lg:px-0">
-                        <BotSetting />
-                    </div>
-                    <div className="col-span-12 lg:-mt-32 px-2 lg:px-0">
-                        <BotStatistics />
-                    </div>
-                </div>
+
+                <TabDash />
             </div>
         </div>
     );
