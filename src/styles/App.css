@@ -35,7 +35,7 @@
     inset 0px 0px 8.7406px rgba(255, 255, 255, 0.52);
   border-radius: 50px;
   color: #fff;
-  @apply px-4 py-2 text-sm transition-all;
+  @apply px-6 py-1.5 font-semibold transition-all;
 }
 
 .dashboard-primary-btn:hover {

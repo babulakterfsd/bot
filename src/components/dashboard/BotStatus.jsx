@@ -21,7 +21,7 @@ function BotStatus() {
                     </div>
                 </div>
             </div>
-            <div className="quickaction bg-[#2d2336] shadow-lg rounded-lg w-full -mt-8 p-4">
+            {/* <div className="quickaction bg-[#2d2336] shadow-lg rounded-lg w-full -mt-8 p-4">
                 <h2 className="text-center font-montserrat font-bold text-2xl">Quick Actions</h2>
                 <h6 className="text-center font-montserrat text-sm mt-4 mb-8">
                     Sell 25% of position
@@ -31,7 +31,7 @@ function BotStatus() {
                         More
                     </button>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
