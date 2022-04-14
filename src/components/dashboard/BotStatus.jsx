@@ -3,7 +3,7 @@ import styles from '../../styles/BotStatus.module.css';
 
 function BotStatus() {
     return (
-        <div>
+        <div className="min-h-screen">
             <div className={`${styles.BotStatus} bg-[#1d1726] px-4 py-8 mt-8 mb-6 rounded-lg`}>
                 <h1 className="font-montserrat font-bold text-2xl mb-8">Bot status</h1>
                 <div className="statusboxes grid grid-cols-12 space-y-1">
