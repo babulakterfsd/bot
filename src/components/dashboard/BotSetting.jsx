@@ -8,7 +8,7 @@ function BotSetting() {
     const [leverage, setLeverage] = useState(5);
     const toggleClass = 'transform translate-x-full';
     return (
-        <div className={`${styles.BotSetting} bg-reddishDark py-9 mt-32 px-2 lg:p-9 rounded-lg`}>
+        <div className={`${styles.BotSetting} bg-reddishDark py-9 mt-8 px-2 lg:p-9 rounded-lg`}>
             {/* heading and divider */}
             <h1 className="font-montserrat font-bold text-2xl mb-6">Settings</h1>
             <hr className="opacity-10" />
@@ -93,9 +93,9 @@ function BotSetting() {
                         <select
                             className={`${styles.drop} bg-[#1b1423] w-full py-3 lg:w-64 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left border-0 focus:outline-none focus:ring-0 focus: focus:ring-violet-300`}
                         >
-                            <option>Coin</option>
-                            <option>Test Account 1</option>
-                            <option>Test Account 2</option>
+                            <option>Select Coin</option>
+                            <option>Coin 1</option>
+                            <option>Coin 2</option>
                         </select>
                     </div>
                 </div>

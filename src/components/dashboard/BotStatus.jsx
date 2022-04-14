@@ -4,7 +4,7 @@ import styles from '../../styles/BotStatus.module.css';
 function BotStatus() {
     return (
         <div>
-            <div className={`${styles.BotStatus} bg-[#1d1726] px-4 py-8 mt-32 mb-6`}>
+            <div className={`${styles.BotStatus} bg-[#1d1726] px-4 py-8 mt-8 mb-6`}>
                 <h1 className="font-montserrat font-bold text-2xl mb-8">Bot status</h1>
                 <div className="statusboxes grid grid-cols-12 space-y-1">
                     <div className="runeprice col-span-12 py-2 pl-4 bg-black flex items-center rounded-md">
