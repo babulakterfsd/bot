@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
@@ -64,21 +65,35 @@ function BotSetting() {
                 </div>
             </div>
             {/* leaverage */}
-            <div className="leverage my-12 flex items-center  flex-col lg:flex-row shadow-lg bg-[#1b1423] py-4 rounded-lg">
-                <div className="text-md font-semibold mx-auto ">Choose Your leverage</div>
-                <div className="range mx-4 my-5 lg:my-0 flex items-center">
-                    <input
+            <div className="leverage my-12 grid grid-cols-12 items-center  shadow-lg bg-[#1b1423] py-4 rounded-lg">
+                <div className="text-sm mx-auto col-span-12 lg:col-span-4 font-semibold">
+                    Input your leverage
+                </div>
+                <div className="range mx-auto my-5 lg:my-0 col-span-12 lg:col-span-4">
+                    {/* <input
                         type="range"
                         value={leverage}
-                        step={1}
-                        min={1}
-                        max={10}
+                        step={0.05}
+                        min={1.1}
+                        max={1.75}
                         onChange={(e) => setLeverage(e.target.value)}
                         className="rounded-lg accent-[#ff5754] cursor-pointer"
                     />
-                    <span className="mx-3 px-2 py-0.5 bg-[#53353c] opacity-80">{leverage}</span>
+                    <span className=" mx-auto w-10 mr-auto px-2 py-0.5 bg-[#53353c] opacity-80">
+                        {leverage}
+                    </span>
+                    <span className="mx-auto">Or</span> */}
+
+                    <input
+                        type="number"
+                        min="1.10"
+                        max="1.75"
+                        step=".05"
+                        placeholder="custom value"
+                        className="w-32 text-center px-2 py-0.5 bg-[#53353c] opacity-80 rounded-lg focus:outline-none"
+                    />
                 </div>
-                <div className="mx-auto lg:ml-auto">
+                <div className="mx-auto col-span-12 lg:col-span-4">
                     <button type="button" className="dashboard-primary-btn-sm ml-2">
                         Confirm
                     </button>
