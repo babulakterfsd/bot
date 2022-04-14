@@ -4,7 +4,7 @@ import LineChart from './Chart/LineChart';
 
 function BotStatistics() {
     return (
-        <div className={`${styles.BotStatistics} py-9 lg:p-9 mt-24 rounded-lg `}>
+        <div className={`${styles.BotStatistics} py-9 lg:p-9 mt-8 rounded-lg `}>
             <div className="main-container">
                 <h1 className="font-montserrat font-bold text-2xl mb-6">Stats</h1>
                 <div className="stats-container grid grid-cols-12 space-y-8">

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import React from 'react';
 import { Tab, TabList, Tabs } from 'react-tabs';
 import TabPanel from 'react-tabs/lib/components/TabPanel';
