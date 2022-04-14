@@ -9,12 +9,14 @@ import BotStatus from '../BotStatus';
 
 function TabDash() {
     return (
-        <div>
-            <Tabs>
-                <TabList>
-                    <Tab className={`${styles.tabbtn}`}>Bot status</Tab>
-                    <Tab className={`${styles.tabbtn}`}>Bot Settings</Tab>
-                    <Tab className={`${styles.tabbtn}`}>Bot Statistics</Tab>
+        <div className="main-container">
+            <Tabs className=" px-2 lg:px-0">
+                <TabList className="flex flex-col lg:flex-row">
+                    <Tab className={`${styles.tabbtn} col-span-12 lg:col-span-4`}>Bot status</Tab>
+                    <Tab className={`${styles.tabbtn} col-span-12 lg:col-span-4`}>Bot Settings</Tab>
+                    <Tab className={`${styles.tabbtn} col-span-12 lg:col-span-4`}>
+                        Bot Statistics
+                    </Tab>
                 </TabList>
                 <TabPanel>
                     <BotStatus />
