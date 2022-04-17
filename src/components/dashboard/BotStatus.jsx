@@ -5,7 +5,7 @@ function BotStatus() {
     return (
         <div className="min-h-screen">
             <div
-                className={`${styles.BotStatus} bg-[#1d1726] px-4 py-8 mt-8 mb-6 rounded-lg w-1/2`}
+                className={`${styles.BotStatus} bg-[#1d1726] px-4 py-8 mt-8 mb-6 rounded-lg lg:w-1/2`}
             >
                 <h1 className="font-montserrat font-bold text-2xl mb-8">Bot status</h1>
                 <div className="statusboxes grid grid-cols-12 space-y-1">

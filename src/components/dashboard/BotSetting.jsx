@@ -52,7 +52,7 @@ function BotSetting() {
                 </div>
                 <div className="subaccount-dropdown flex flex-col lg:flex-row  items-center">
                     <div className="apikeytext lg:w-[30%] lg:mb-0" />
-                    <div className="dr bg-[#1b1423] w-full py-1 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left">
+                    <div className="dr bg-[#1b1423] w-full py-3 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left">
                         {/* <Dropdown name="Subaccount name" /> */}
                         <select
                             className={`${styles.drop} bg-[#1b1423] w-full  rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left border-0 focus:outline-none focus:ring-0 focus: focus:ring-violet-300`}
