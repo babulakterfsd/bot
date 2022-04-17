@@ -1,22 +1,15 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import UseAuth from '../../../Hooks/UseAuth';
 import styles from '../../../styles/MainTab.module.css';
 import TabDash from '../Tab/TabDash';
 
-
 function MainTab() {
-    const [Allbot, setAllbot] = useState([]);
 
-    useEffect(() => {
-        fetch('/data.json')
-            .then((res) => res.json())
-            .then((data) => {
-                setAllbot(data);
-            });
-    }, []);
+    const {Allbot} = UseAuth();
 
     return (
         <div className="main-container">

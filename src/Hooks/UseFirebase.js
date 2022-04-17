@@ -29,6 +29,8 @@ const UseFirebase = () => {
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
+    const [Allbot, setAllbot] = useState([]);
+
     // get name
     function getName(e) {
         setName(e?.target?.value);
@@ -114,6 +116,23 @@ const UseFirebase = () => {
             body: JSON.stringify(user),
         }).then();
     };
+
+    useEffect(() => {
+        // calls real api for an user who has a single bot
+        // fetch('https://pipesai.mpact-labs.com/get_bot_by_user_id?user_id=Matinatorv2')
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         setAllbot(data);
+        //     });
+
+        // calls test api for an user who has a 3 bots, I have set this to show you sir..
+        fetch('/data.json')
+            .then((res) => res.json())
+            .then((data) => {
+                setAllbot(data);
+            });
+    }, []);
+
     return {
         signInWithEmail,
         logOut,
@@ -131,6 +150,8 @@ const UseFirebase = () => {
         setIsLoading,
         saveUser,
         admin,
+        Allbot,
+        setAllbot,
     };
 };
 export default UseFirebase;
