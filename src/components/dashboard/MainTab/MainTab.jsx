@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Tab, TabList, Tabs } from 'react-tabs';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import styles from '../../../styles/MainTab.module.css';
+import TabDash from '../Tab/TabDash';
 
 function MainTab() {
     const [Allbot, setAllbot] = useState([]);
@@ -27,7 +28,11 @@ function MainTab() {
                     <Tab className={`${styles.tabbtn} col-span-12 lg:col-span-4`}>Bot 3</Tab>
                     <Tab className={`${styles.tabbtn} col-span-12 lg:col-span-4`}>Add New Bot</Tab> */}
                 </TabList>
-
+                {Allbot?.map(() => (
+                    <TabPanel>
+                        <TabDash />
+                    </TabPanel>
+                ))}
                 {/* <TabPanel>
                     <TabDash />
                 </TabPanel>
