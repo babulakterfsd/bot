@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import TabDash from '../components/dashboard/Tab/TabDash';
+import MainTab from '../components/dashboard/MainTab/MainTab';
 import UseAuth from '../Hooks/UseAuth';
 import styles from '../styles/Dashboard.module.css';
 
@@ -79,8 +79,8 @@ function Dashboard() {
                         </div>
                     )}
                 </div>
-                {/* dashboard */}
-                <TabDash />
+                <MainTab />
+                {/* <TabDash /> */}
             </div>
         </div>
     );
