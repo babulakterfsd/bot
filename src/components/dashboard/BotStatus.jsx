@@ -1,7 +1,15 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
+import UseAuth from '../../Hooks/UseAuth';
 import styles from '../../styles/BotStatus.module.css';
 
 function BotStatus() {
+    const { Allbot } = UseAuth();
+
+    console.log(Allbot);
+
+    console.log(Allbot[0]?.position?.cost);
+
     return (
         <div className="min-h-screen">
             <div
@@ -11,15 +19,19 @@ function BotStatus() {
                 <div className="statusboxes grid grid-cols-12 space-y-1">
                     <div className="runeprice col-span-12 py-2 pl-4 bg-black flex items-center rounded-md">
                         <span className="mr-4">RUNE price : </span>
-                        <span className="text-offReddish font-semibold text-lg">${14.2}</span>
+                        <span className="text-offReddish font-semibold text-lg">
+                            ${`${Allbot[0]?.position?.cost}`}
+                        </span>
                     </div>
                     <div className="runeprice col-span-12 py-2 pl-4 bg-black flex items-center rounded-md">
                         <span className="mr-4"># of RUNE : </span>
-                        <span className="text-offReddish font-semibold text-lg">{1247}</span>
+                        <span className="text-offReddish font-semibold text-lg">{`${Allbot[0]?.position?.size}`}</span>
                     </div>
                     <div className="runeprice col-span-12 py-2 pl-4 bg-black flex items-center rounded-md">
                         <span className="mr-4">Profit : </span>
-                        <span className="text-offReddish font-semibold text-lg">${25983.0}</span>
+                        <span className="text-offReddish font-semibold text-lg">
+                            ${`${Allbot[0]?.position?.cost}`}
+                        </span>
                     </div>
                 </div>
             </div>

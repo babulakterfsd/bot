@@ -1,11 +1,22 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
+import UseAuth from '../../Hooks/UseAuth';
 import styles from '../../styles/BotSetting.module.css';
 
 function BotSetting() {
-    const [toggle, setToggle] = useState(true);
+    const { Allbot } = UseAuth();
+    const { is_enabled } = Allbot[0];
+
+    const [toggle, setToggle] = useState(!is_enabled);
+    const subAccountNames = [`Test Account 1`, `Test Account 2`, `Test Account 3`];
+    const coin = ['ALCX-PERP', 'BTC', 'ETH', 'LTC'];
+
+    console.log(toggle);
+
     const [leverage, setLeverage] = useState(5);
     const toggleClass = 'transform translate-x-full';
     return (
@@ -40,14 +51,14 @@ function BotSetting() {
             <div className="apiboxes flex flex-col">
                 <div className="apikey flex flex-col lg:flex-row items-center">
                     <div className="apikeytext lg:w-[30%] mb-1 lg:mb-0">API Key : </div>
-                    <div className="bg-[#1b1423] w-full py-3  rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left">
-                        fajsadjk25asdhasd158asd
+                    <div className="bg-[#1b1423] w-full py-3 px-1 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left break-words">
+                        {Allbot[0]?.api_key}
                     </div>
                 </div>
                 <div className="apisecret flex flex-col lg:flex-row  items-center my-10 lg:my-3">
                     <div className="apikeytext lg:w-[30%] mb-1 lg:mb-0">API Secret : </div>
-                    <div className="bg-[#1b1423] w-full py-3 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left">
-                        fajsadjk25asdhasd158asd
+                    <div className="bg-[#1b1423] w-full py-3 px-1 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left break-words">
+                        {Allbot[0]?.api_secret}
                     </div>
                 </div>
                 <div className="subaccount-dropdown flex flex-col lg:flex-row  items-center">
@@ -58,8 +69,13 @@ function BotSetting() {
                             className={`${styles.drop} bg-[#1b1423] w-full  rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left border-0 focus:outline-none focus:ring-0 focus: focus:ring-violet-300`}
                         >
                             <option>Select Subaccount</option>
-                            <option>Test Account 1</option>
-                            <option>Test Account 2</option>
+
+                            {subAccountNames?.map((account, index) => (
+                                <option value={account} key={index}>
+                                    {' '}
+                                    {account}{' '}
+                                </option>
+                            ))}
                         </select>
                     </div>
                 </div>
@@ -89,8 +105,8 @@ function BotSetting() {
                         min="1.10"
                         max="1.75"
                         step=".05"
-                        placeholder="custom value"
-                        className="w-32 text-center px-2 py-0.5 bg-[#53353c] opacity-80 rounded-lg focus:outline-none"
+                        placeholder={`example: ${Allbot[0]?.leverage}`}
+                        className="w-44 text-center px-2 py-0.5 bg-[#53353c] opacity-80 rounded-lg focus:outline-none"
                     />
                 </div>
                 <div className="mx-auto col-span-12 lg:col-span-4">
@@ -109,8 +125,12 @@ function BotSetting() {
                             className={`${styles.drop} bg-[#1b1423] w-full py-3 lg:w-64 rounded-md text-sm col-span-9 lg:pl-10 text-center lg:text-left border-0 focus:outline-none focus:ring-0 focus: focus:ring-violet-300`}
                         >
                             <option>Select Coin</option>
-                            <option>Coin 1</option>
-                            <option>Coin 2</option>
+                            {coin?.map((account, index) => (
+                                <option value={account} key={index}>
+                                    {' '}
+                                    {account}{' '}
+                                </option>
+                            ))}
                         </select>
                     </div>
                 </div>
